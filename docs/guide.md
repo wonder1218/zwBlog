@@ -7,8 +7,8 @@ sidebarDepth: 2
 # 手把手教你使用 VuePress 搭建个人博客
 
 ::: tip 提示
-有阅读障碍的同学，可以跳过第一至四节，下载我写好的[工具包](https://github.com/zhangyunchencc/vuepress-devkit.git): 
-`git clone https://github.com/zhangyunchencc/vuepress-devkit.git` 然后从第五节开始看。
+有阅读障碍的同学，可以跳过第一至四节，下载我写好的[工具包](https://github.com/wonder1218/vuepress-devkit.git): 
+`git clone https://github.com/wonder1218/vuepress-devkit.git` 然后从第五节开始看。
 :::
 
 ## 一、为什么你需要一个博客？
@@ -227,11 +227,11 @@ public 文件夹下新建 manifest.json 文件，添加
 
 <b>！！！注意：USERNAME 必须是你 Github 的账号名称，不是你的名字拼音，也不是你的非主流网名，不要瞎起，要保证和Github账号名一模一样！</b>
 
-例如我的 Github 账号名称是 zhangyunchencc
+例如我的 Github 账号名称是 wonder1218
 
 ![](/images/eg13.png)
 
-那么新建仓库，Repository name 就填写为：zhangyunchencc.github.io
+那么新建仓库，Repository name 就填写为：wonder1218.github.io
 
 ![](/images/eg14.png)
 
@@ -241,7 +241,7 @@ public 文件夹下新建 manifest.json 文件，添加
 
 这个项目是用来开发博客的，以后只需要改这个项目就够了。
 
-- 使用工具包的，将 [vuepress-devkit](https://github.com/zhangyunchencc/vuepress-devkit.git) 中的内容拷贝到 vuepressBlog 文件夹中
+- 使用工具包的，将 [vuepress-devkit](https://github.com/wonder1218/vuepress-devkit.git) 中的内容拷贝到 vuepressBlog 文件夹中
 
 - 自己从头搭建的，将 vuepressBlogDemo 文件夹的内容拷贝到仓库二，并在根目录下创建 deploy.sh 文件，内容如下：
 
@@ -275,11 +275,11 @@ cd -
 
 ### 修改仓库二中的 deploy.sh 发布脚本
 
-把文件中的 USERNAME 改成 Github 账号名，例如我的账号名是 zhangyunchencc，那么就可以改为：
+把文件中的 USERNAME 改成 Github 账号名，例如我的账号名是 wonder1218，那么就可以改为：
 
 ```sh
 # 如果你想要部署到 https://USERNAME.github.io
-git push -f git@github.com:zhangyunchencc/zhangyunchencc.github.io.git master
+git push -f git@github.com:wonder1218/wonder1218.github.io.git master
 ```
 
 这样仓库二和仓库一就建立了关联。
@@ -299,7 +299,7 @@ git push -f git@github.com:zhangyunchencc/zhangyunchencc.github.io.git master
 
     npm run deploy
 
-此时打开 Github Settings 中下面的链接: [https://zhangyunchencc.github.io/](https://zhangyunchencc.github.io/) 即可看到自己的主页啦~
+此时打开 Github Settings 中下面的链接: [https://wonder1218.github.io/](https://wonder1218.github.io/) 即可看到自己的主页啦~
 
 ![](/images/eg2.png)
 
@@ -313,7 +313,7 @@ git push -f git@github.com:zhangyunchencc/zhangyunchencc.github.io.git master
 可以看到导航栏变成了左上角的小图标，可以打开和收起。
 
 ## 六、发布到自己的个人域名
-如果你不满足于 https://zhangyunchencc.github.io/ 这样的域名，想要一个自己个人的专属域名，比如 http://www.zhangyunchen.cc/ ，毕竟一些大牛（阮一峰 [http://www.ruanyifeng.com/blog/](http://www.ruanyifeng.com/blog/)） 都是自己名字的网址哦，很方便很酷呢 😎 
+如果你不满足于 https://wonder1218.github.io/ 这样的域名，想要一个自己个人的专属域名，比如 http://www.wonder1218.cc/ ，毕竟一些大牛（阮一峰 [http://www.ruanyifeng.com/blog/](http://www.ruanyifeng.com/blog/)） 都是自己名字的网址哦，很方便很酷呢 😎 
 
 下面跟着步骤一步步来就好啦~
 
@@ -352,14 +352,14 @@ npm run build
 cd docs/.vuepress/dist
 
 # 如果是发布到自定义域名
-echo 'www.zhangyunchen.cc' > CNAME
+echo 'www.wonder1218.cc' > CNAME
 
 git init
 git add -A
 git commit -m 'deploy'
 
 # 如果你想要部署到 https://<USERNAME>.github.io
-git push -f git@github.com:zhangyunchencc/zhangyunchencc.github.io.git master
+git push -f git@github.com:wonder1218/wonder1218.github.io.git master
 
 # 如果发布到 https://<USERNAME>.github.io/<REPO>  REPO=github上的项目
 # git push -f git@github.com:<USERNAME>/vuepress.git master:gh-pages
@@ -370,7 +370,7 @@ cd -
 
 此时，我们运行 npm run deploy 即可发布到自己的专属域名啦~
 
-### :clap: 大功告成，打开 [https://www.zhangyunchen.cc](https://www.zhangyunchen.cc) 看一下吧~~~
+### :clap: 大功告成，打开 [https://www.wonder1218.cc](https://www.wonder1218.cc) 看一下吧~~~
 
 拥有自己专属域名的个人博客感觉很酷哦~
 
@@ -382,11 +382,11 @@ cd -
 - Github 需要添加 ssh key，第一次使用的同学遇到问题可以百度解决；
 - 个人博客不只可以用来写技术相关的内容，也可以有自己写的文章、随笔，甚至上传一些照片。
 
-我的 [vuepress-devkit](https://github.com/zhangyunchencc/vuepress-devkit.git) 已经开源放在了 Github 上，还有很多想要增加的功能，例如添加评论模块、自动生成侧边栏目录、增加网站分析工具等等，在这里欢迎大家 Star 或者 Fork 。
+我的 [vuepress-devkit](https://github.com/wonder1218/vuepress-devkit.git) 已经开源放在了 Github 上，还有很多想要增加的功能，例如添加评论模块、自动生成侧边栏目录、增加网站分析工具等等，在这里欢迎大家 Star 或者 Fork 。
 
 以上，
 
 
-张韵晨 | Front End Engineer | 2018.10
+郑文 | Front End Engineer | 2023.11
 
 
