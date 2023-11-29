@@ -176,13 +176,13 @@
 ---
 
 ``` js
- <div id=“box”>
+//  <div id=“box”>
 
-        <span> 1 </span><span> 2
+//         <span> 1 </span><span> 2
 
-    </span><span> 3 </span>…<span> 1000 </span>
+//     </span><span> 3 </span>…<span> 1000 </span>
 
-    </div>
+//     </div>
 
     <script>
 
