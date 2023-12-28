@@ -35,6 +35,78 @@
 
 ## css
 
+### 三种css隐藏元素的方式有哪些？
+
+> + `display: none`;这样的样式会让元素在页面上彻底消失，不占据任何空间。但是会被其他元素覆盖。所以会导致重排和重绘。
+> + `visibility: hidden`;这样的样式会在页面消失之后，他原本占有的空间还会被保留。会导致浏览器的重绘，而不会导致重排。
+> + `opacity: 0`;透明度为0。在视觉上也是隐藏的，会让元素在页面上彻底消失，但是会被其他元素覆盖。所以会导致重排和重绘。
+
+### CSS 盒模型？
+
+> + 1、每个html元素都可以看作一个盒子，这个盒子由里到外，由这个元素的内容content、边框border、内边距padding、外边距margin组成。
+>
+> + 2、盒子模型一般分为标准盒模型 和 怪异盒模型，怪异盒模型又叫做IE盒模型。这两种盒模型又有什么区别呢？
+>
+> + 3、在标准盒模型下，浏览器的width属性，就是内容content的宽度，也就是说，如果我们给一个元素设置width属性，那么width属性就是内容的宽度，此时这个元素盒子的总宽度就是：width + 内边距 + 边框 + 外边距，高度也是这样。而怪异盒模型，指的是浏览器的width属性不是内容的宽度，是元素的内容 + 内边距 + 边框的宽度之和。
+换句话说，如果我们给一个元素设置width属性，那么这个盒子的总宽度就是：width + 外边距 之和。因为width已经包含了内容、内边距、边框。
+> + 正常情况下默认是标准盒模型，但是我们可以通过box-sizing属性来指定盒模型，当它的值是border-box时，就是怪异盒模型。当值content-box时，就是标准盒模型，因为标准盒模型的width就是content。
+
+### 3. 页面布局有哪几种方式？
+
+> + 页面布局常用的方法有浮动、定位、flex、grid网格布局、栅格系统布局
+> + 浮动：优点: 兼容性好。缺点:浮动会脱离标准文档流，因此要清除浮动。我们解决好这个问题即可。
+> + 绝对定位。优点: 快捷。缺点: 导致子元素也脱离了标准文档流，可实用性差。
+> + flex 布局 (CSS3中出现的)。优点: 解决上面两个方法的不足，fex布局比较完美。移动端基本用 flex布局。
+> + 网格布局 (grid)。CSS3中引入的布局，很好用。代码量简化了很多。
+
+### 利用网格布局实现的个左右300px中间自适应的布局
+
+``` html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<style>
+html * {
+padding: 0;
+margin: 0;
+}
+/* 重要：设置容器为网格布局，宽度为100% */
+.layout.grid .left-center-right {
+display: grid;
+width: 100%;
+grid-template-rows: 100px;
+grid-template-columns: 300px auto 300px; /* 重要：设置网格为三列，并设置每列的宽度。即可。*/
+}
+.layout.grid .left {
+background: red;
+}
+.layout.grid .center {
+background: green;
+}
+.layout.grid .right {
+background: blue;
+}
+</style>
+</head>
+<body>
+<section class="layout grid">
+<article class="left-center-right">
+<div class="left">我是 left</div>
+<div class="center">
+我是 center
+<h1>网格布局解决方案</h1>
+</div>
+<div class="right">我是 right</div>
+</article>
+</section>
+</body>
+</html>
+
+```
+
 ---
 
 1. 页面中包含一个头部，头部中包含一个标题
