@@ -107,6 +107,90 @@ background: blue;
 
 ```
 
+### 简单谈一下flex布局？
+
+> + 当并列书写多个div标签，它们会纵向向下排位，如果我们想将多个div并列成一排，就得借助position，float，或display属性，这便是传统的盒模型做法。
+> + 而flex布局则是一种新的布局方案，通过为修改父div的display属性，让父元素成为一个flex容器，从而可以自由的操作容器中子元素(项目)的排列方式。
+> + 例如我们让多个div横向排列，传统做法是使用浮动，但浮空后因为脱离文档流的缘故，父元素会失去高度，这又涉及了清除浮动等一系列的问题。
+> + 而flex布局相对简单很多，修改父元素display:flex，你会发现div自动就排列成了一行，而且没有浮动之后的副作用，从回流角度考虑，flex的性能更优于float；随着浏览器不断兼容以及旧版本的淘汰，flex布局注定会成为更为流行的布局方案。
+>
+> + 1、flex-direction 属性，决定主轴的方向(即项目的排列方向)
+> + 取值：row(默认) | row-reverse | column | column-reverse
+> + 2、flex-wrap属性，决定容器内项目是否可换行。
+> + 取值：nowrap(默认) | wrap | wrap-reverse
+> + 3、justify-content属性，定义了项目在主轴的对齐方式。
+> + 取值：flex-start(默认) | flex-end | center | space-between | space-around | space-evenly;
+> + 4、align-items属性，定义了项目在交叉轴上的对齐方式。
+> + 取值：flex-start | flex-end | center | baseline | stretch(默认)
+> + 5、flex-flow: flex-direction 和 f’lex-wrap 的简写形式。
+> + 取值：flex-flow： || ；默认值为row nowrap，没什么卵用。
+> + 6、align-content: 定义了多根轴线的对齐方式，如果项目只有一根轴线，那么该属性将不起作用。
+> + 取值： align-content: flex-start | flex-end | center | space-between | space-around | stretch；
+
+### 如何水平垂直居中？
+
+``` html
+1. 通过定位，给父盒子相对定位，子盒子绝对定位，top、left为50%，再margin-left : -（子盒子宽的一半）px; margin-top: -（子盒子高的一半）px;
+<style>
+        div {
+            position: relative;
+            height: 400px;
+            width: 400px;
+            background-color: pink;
+        }
+        span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -50px;
+            margin-top: -50px;
+            display: block;
+            width: 100px;
+            height: 100px;
+            background-color: purple;
+        }
+</style>
+2. 不依赖通过计算子盒子的宽高进行定位，可以用transform: translate 移动自身的一半就行了。
+<style>
+        div {
+            position: relative;
+            height: 400px;
+            width: 400px;
+            background-color: pink;
+        }
+
+        span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: block;
+            width: 100px;
+            height: 100px;
+            background-color: purple;
+        }
+</style>
+3. 通过flex布局，设置垂直水平都居中。
+<style>
+        div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 400px;
+            width: 400px;
+            background-color: pink;
+        }
+
+        span {
+            display: block;
+            width: 100px;
+            height: 100px;
+            background-color: purple;
+        }
+</style>
+
+```
+
 ---
 
 1. 页面中包含一个头部，头部中包含一个标题
